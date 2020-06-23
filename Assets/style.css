@@ -1,9 +1,10 @@
 /** @format */
 
-.card {
-	border-style: double;
+.container {
+	border-style: groove;
 	border-color: blue;
 	border-width: 4px;
+	
 }
 
 .favorable {
@@ -25,6 +26,9 @@
 }
 
 .forecast-day {
-	margin: 1em;
-	background-color: magenta;
+	margin: 1em 0;
+	padding: .5em;
+	color: white;
+	background-color: purple;
+	max-width: 15em;
 }
