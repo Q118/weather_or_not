@@ -1,7 +1,7 @@
 /** @format */
 
 .container {
-	border-style: groove;
+	border-style: double;
 	border-color: blue;
 	border-width: 4px;
 	
