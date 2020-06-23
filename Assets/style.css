@@ -1,0 +1,25 @@
+/** @format */
+
+.card {
+	border-style: double;
+	border-color: blue;
+	border-width: 4px;
+}
+
+.favorable {
+	background-color: darkkhaki;
+}
+
+.moderate {
+	background-color: darkolivegreen;
+}
+
+.severe {
+	background-color: darkred;
+}
+
+
+#search-button {
+    font-size: 1.5em;
+    background-color: lightseagreen;
+}
