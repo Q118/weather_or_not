@@ -46,9 +46,9 @@ $(function () {
 			var forecastContainer = $("<div>").addClass("forecast-day");
 			//create elements for date, icon, temp, and humidity
 			var dateEl = $("<div>").text(forecastDays[i].dt_txt);
-			//replace date with forecastDays[i].dt or with moment
+			//var imageEl= $("<img>").src(forecastDays[i].symbol)
 			//prob need to create an image
-			var iconEl = $("<div>").text("icon" + forecastDays[i].weather[0].icon);
+			var iconEl = $("<img>").attr("src", "http://openweathermap.org/img/wn/" + forecastDays[i].weather[0].icon  + "@2x.png");
 			var tempEl =$("<div>").text("temp" + forecastDays[i].main.temp + "°F");
 			var humidityEl = $("<div>").text("humididty info");
 			//add data element to forecast-day div
