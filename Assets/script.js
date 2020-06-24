@@ -13,11 +13,11 @@ $(function () {
 		event.preventDefault();
 		renderInfo();
 	});
-
+/////////
 	function displayHistory() {
 		var history = JSON.parse(localStorage.getItem("forecastDays"));
 	};
-
+//////
 	function renderInfo() {
 		var apiKey = "cb2ced122314e011f2e654fe37600669";
 		var city = $("#city-input").val();
@@ -62,7 +62,7 @@ $(function () {
 				var forecastContainer = $("<div>").addClass("forecast-day");
 
 				//create elements for date, icon, temp, and humidity
-				var dateEl = $("<div>").text(forecastDays[i].dt_txt);
+				var dateEl = $("<div>").html(forecastDays[i].dt_txt);
 				//var imageEl= $("<img>").src(forecastDays[i].symbol)
 				//prob need to create an image
 				var iconEl = $("<img>").attr(
@@ -71,10 +71,10 @@ $(function () {
 						forecastDays[i].weather[0].icon +
 						"@2x.png"
 				);
-				var tempEl = $("<div>").text(
+				var tempEl = $("<div>").html(
 					"Temp: " + forecastDays[i].main.temp + "°F"
 				);
-				var humidityEl = $("<div>").text(
+				var humidityEl = $("<div>").html(
 					"Humidity: " + forecastDays[i].main.humidity + "%"
 				);
 				//add data element to forecast-day div
@@ -84,7 +84,7 @@ $(function () {
 				$("#forecast").append(forecastContainer);
 			}
 			//placing title at the top
-			var cityTitle = $("<h2>").text(city + "'s 5 Day forecast:");
+			var cityTitle = $("<h2>").html(city + "'s 5 Day forecast:");
 			$("#forecast").prepend(cityTitle);
 
 			//data dump for todays city info
@@ -119,5 +119,8 @@ $(function () {
 				uvIndex
 			);
 		});
+		//clears previous info to display only the most recently searched or button clicked
+		$("#info-container").empty();
+		$("#forecast").empty();
 	}
 });

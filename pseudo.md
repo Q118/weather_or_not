@@ -1,3 +1,19 @@
+var historyu
+if (history.length > 0){
+    searchWeather()
+}
+then push into history Array
+    seperate ajax call to own function
+    apply to click and loading
+
+//make a function render get Info
+JSON.parse localStorage getItem
+onLoad find stuff..
+
+
+refresh want away make get item function displayOOnload
+get item and render everything inside of the function i made
+
 # Weather Dashboard
 
 I WANT to see the weather outlook for multiple cities
