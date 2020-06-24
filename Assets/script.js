@@ -5,7 +5,7 @@ $(function () {
 	//then we read value of input element
 
 	$(document).ready(function () {
-		console.log("ready!");
+		
 		init();
 	});
 
@@ -17,10 +17,10 @@ $(function () {
 		var storedCities = JSON.parse(localStorage.getItem("forecastDays"));
 		if (storedCities !== null) {
 			cities = storedCities;
-		}
+		};
 		//renders cities to the DOM
 		renderInfo();
-	}
+	};
 
 	$("#button-container").on("click", ".m-3", function () {
 		event.preventDefault();
@@ -29,6 +29,12 @@ $(function () {
 
 	$("#search-button").on("click", function (event) {
 		event.preventDefault();
+		var a = $("<button>");
+		var city = $("#city-input").val();
+		a.text(city);
+		a.addClass("m-3");
+		$("#button-container").append(a);
+
 		renderInfo();
 	});
 
@@ -43,11 +49,7 @@ $(function () {
 			"&appid=" +
 			apiKey;
 
-		var a = $("<button>");
-		a.text(city);
-		a.addClass("m-3");
-		$("#button-container").append(a);
-
+	
 		$.ajax({
 			url: queryURL,
 			method: "GET",
