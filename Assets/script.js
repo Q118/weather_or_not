@@ -39,9 +39,11 @@ $(function () {
 			forecastDays.push(response.list[24]);
 			forecastDays.push(response.list[32]);
 
+			//put title in capitals
+			forecastEl.addClass("capitalize");
+
 			//create forecast-day div
 			for (var i = 0; i < forecastDays.length; i++) {
-				//console.log(forecastDays[i]);
 				var forecastContainer = $("<div>").addClass("forecast-day");
 
 				//create elements for date, icon, temp, and humidity
@@ -71,20 +73,25 @@ $(function () {
 			$("#forecast").prepend(cityTitle);
 
 			//data dump for todays city info
-			var currentName = $("<ul>").html("<h2>" + "Right now in " + city + ":" + "</h2>");
-			
-			var currentTemp =
-			$("<li>").text("Temperature: " + forecastDays[0].main.temp + "°F");
-				
-				$("#info-container").append(currentName, currentTemp);
-				console.log(this);
-		
+			var currentName = $("<ul>").html(
+				"<h2>" + "Right now in " + city + ":" + "</h2>"
+			);
+
+			var currentTemp = $("<li>").text(
+				"Temperature: " + forecastDays[0].main.temp + "°F"
+			);
+
+			var currentHumidity = $("<li>").text(
+				"Humidity: " + forecastDays[0].main.humidity + "%"
+			);
+				//capitalize the title
+			currentName.addClass("capitalize");
+			$("#info-container").append(currentName, currentTemp, currentHumidity);
+			console.log(this);
+
 			//var currentHumidity =
 			//var currentWind =
 			//var uvIndex =
-
-
-
 		});
 	});
 
@@ -94,5 +101,5 @@ $(function () {
 	//}
 });
 
-//get reference to element for showing the data
-//use .text or .html w JQ to render the data
+
+
