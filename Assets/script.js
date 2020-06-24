@@ -5,14 +5,19 @@ $(function () {
 	//then we read value of input element
 
 	//get key
-	var history= JSON.parse(localStorage.getItem("forecastDays"));
-	$("#info-container").append(history);
+	
+	
+	
 
 	$("#search-button").on("click", function (event) {
-		
 		event.preventDefault();
 		renderInfo();
-	});  
+	});
+
+	function displayHistory() {
+		var history = JSON.parse(localStorage.getItem("forecastDays"));
+	};
+
 	function renderInfo() {
 		var apiKey = "cb2ced122314e011f2e654fe37600669";
 		var city = $("#city-input").val();
@@ -33,7 +38,6 @@ $(function () {
 			url: queryURL,
 			method: "GET",
 		}).then(function (response) {
-			
 			var info = $("<h2>");
 			//info.text("Temperature: " + response.main.temp + " Fahrenheit");
 			$("#info-container").append(info);
@@ -114,20 +118,6 @@ $(function () {
 				currentWind,
 				uvIndex
 			);
-			console.log(forecastDays[0]);
-
-			
-			
-
-
 		});
-	};
-
-	
-
-	//function handleSearch(event) {
-	//	event.preventDefault();
-	//	var city = $("#city-input").val();
-	//}
+	}
 });
-
