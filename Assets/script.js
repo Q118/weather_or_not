@@ -33,45 +33,63 @@ $(function () {
 			var forecastEl = $("#forecast");
 			var forecastDays = [];
 			//display one day at a time
-			forecastDays.push(response.list[0]); 
+			forecastDays.push(response.list[0]);
 			forecastDays.push(response.list[8]);
 			forecastDays.push(response.list[16]);
 			forecastDays.push(response.list[24]);
 			forecastDays.push(response.list[32]);
-		
-		
+
 			//create forecast-day div
-			for (var i=0; i< forecastDays.length; i ++) {
+			for (var i = 0; i < forecastDays.length; i++) {
 				console.log(forecastDays[i]);
-			var forecastContainer = $("<div>").addClass("forecast-day");
-			
-			//create elements for date, icon, temp, and humidity
-			var dateEl = $("<div>").text(forecastDays[i].dt_txt);
-			//var imageEl= $("<img>").src(forecastDays[i].symbol)
-			//prob need to create an image
-			var iconEl = $("<img>").attr("src", "http://openweathermap.org/img/wn/" + forecastDays[i].weather[0].icon  + "@2x.png");
-			var tempEl =$("<div>").text("Temp: " + forecastDays[i].main.temp + "°F");
-			var humidityEl = $("<div>").text("Humidity: " + forecastDays[i].main.humidity + "%");
-			//add data element to forecast-day div
-		
-			forecastContainer.append(dateEl, iconEl, tempEl, humidityEl);
-			//append forecast-day div to forecast
-			$("#forecast").append(forecastContainer);
+				var forecastContainer = $("<div>").addClass("forecast-day");
+
+				//create elements for date, icon, temp, and humidity
+				var dateEl = $("<div>").text(forecastDays[i].dt_txt);
+				//var imageEl= $("<img>").src(forecastDays[i].symbol)
+				//prob need to create an image
+				var iconEl = $("<img>").attr(
+					"src",
+					"http://openweathermap.org/img/wn/" +
+						forecastDays[i].weather[0].icon +
+						"@2x.png"
+				);
+				var tempEl = $("<div>").text(
+					"Temp: " + forecastDays[i].main.temp + "°F"
+				);
+				var humidityEl = $("<div>").text(
+					"Humidity: " + forecastDays[i].main.humidity + "%"
+				);
+				//add data element to forecast-day div
+
+				forecastContainer.append(dateEl, iconEl, tempEl, humidityEl);
+				//append forecast-day div to forecast
+				$("#forecast").append(forecastContainer);
 			}
-		//place title at the top
-		var cityTitle = $("<h2>").text(city + "'s 5 Day forecast:");
-		$("#forecast").prepend(cityTitle);
+			//place title at the top
+			var cityTitle = $("<h2>").text(city + "'s 5 Day forecast:");
+			$("#forecast").prepend(cityTitle);
+
+			//data dump for todays city info
+			var currentName = $("<h2>").text("Right now in " + city + ":");
 			
+			//var currentTemp = $("<p>").text(
+			//	"Temp: " + response.main.temp + "°F");
+				$("#info-container").append(currentName);
+				
 		
-		//data dump for todays city info
-		
+			//var currentHumidity =
+			//var currentWind =
+			//var uvIndex =
+
+
 
 		});
 	});
 
 	//function handleSearch(event) {
-		//	event.preventDefault();
-		//	var city = $("#city-input").val();
+	//	event.preventDefault();
+	//	var city = $("#city-input").val();
 	//}
 });
 
