@@ -32,3 +32,10 @@
 	background-color: purple;
 	max-width: 15em;
 }
+
+.my-top {
+	text-align: center;
+	background-color: salmon;
+	opacity: .8;
+	color: black;
+}

@@ -21,14 +21,14 @@
 		<title>Weather Or Not 🌞</title>
 	</head>
 	<body>
-		<nav class="navbar navbar-light bg-light text-center">
+		<nav class="navbar my-top mb-4">
 			<span class="navbar-brand mb-0 h1"
 				>🌪 🌏 🌤 ⛈ WEATHER DASHBOARD ☔️ 🌊 ❄️ 🔥</span
 			>
 		</nav>
 
 		<!--container holding the search and buttons-->
-		<div class="container mb-3">
+		<div class="container mb-3 pb-2">
 			<div class="row" style="width: 18rem;">
 				<div class="card-body col-sm">
 					<form>
@@ -48,10 +48,18 @@
 		<div class="container">
 			<div class="row">
 				<div class="col-sm">
-					<div  id="info-container"></div>
+					<div id="info-container">
+						<ul>
+							<h2>Name of city</h2>
+							<li>Current Temperature</li>
+							<li>Current Humidity</li>
+							<li>Windspeed</li>
+							<li>UV Index:</li>
+						</ul>
+					</div>
 				</div>
 				<div class="col-sm">
-					<div id="forecast"><h2>5 Day Forecast:</h2></div>
+					<div id="forecast"></div>
 				</div>
 			</div>
 		</div>
