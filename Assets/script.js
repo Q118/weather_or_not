@@ -41,7 +41,7 @@ $(function () {
 
 			//create forecast-day div
 			for (var i = 0; i < forecastDays.length; i++) {
-				console.log(forecastDays[i]);
+				//console.log(forecastDays[i]);
 				var forecastContainer = $("<div>").addClass("forecast-day");
 
 				//create elements for date, icon, temp, and humidity
@@ -71,12 +71,13 @@ $(function () {
 			$("#forecast").prepend(cityTitle);
 
 			//data dump for todays city info
-			var currentName = $("<h2>").text("Right now in " + city + ":");
+			var currentName = $("<ul>").html("<h2>" + "Right now in " + city + ":" + "</h2>");
 			
-			//var currentTemp = $("<p>").text(
-			//	"Temp: " + response.main.temp + "°F");
-				$("#info-container").append(currentName);
+			var currentTemp =
+			$("<li>").text("Temperature: " + forecastDays[0].main.temp + "°F");
 				
+				$("#info-container").append(currentName, currentTemp);
+				console.log(this);
 		
 			//var currentHumidity =
 			//var currentWind =
