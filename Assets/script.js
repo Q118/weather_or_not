@@ -4,20 +4,34 @@ $(function () {
 	//listen for clicks on search button
 	//then we read value of input element
 
-	//get key
-	
-	
-	
+	$(document).ready(function () {
+		console.log("ready!");
+		init();
+	});
+
+	var cities = [];
+
+	function init() {
+		//get stored todos from localStorage
+		//parsing the JSON string to an object
+		var storedCities = JSON.parse(localStorage.getItem("forecastDays"));
+		if (storedCities !== null) {
+			cities = storedCities;
+		}
+		//renders cities to the DOM
+		renderInfo();
+	}
+
+	$("#button-container").on("click", ".m-3", function () {
+		event.preventDefault();
+		renderInfo();
+	});
 
 	$("#search-button").on("click", function (event) {
 		event.preventDefault();
 		renderInfo();
 	});
-/////////
-	function displayHistory() {
-		var history = JSON.parse(localStorage.getItem("forecastDays"));
-	};
-//////
+
 	function renderInfo() {
 		var apiKey = "cb2ced122314e011f2e654fe37600669";
 		var city = $("#city-input").val();
