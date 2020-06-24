@@ -1,9 +1,16 @@
 /** @format */
 
+body {
+	background-image: url("weather-icons.jpg");
+	background-size: 300px 250px;
+}
+
 .container {
-	border-style: double;
-	border-color: blue;
+	border-style: groove;
+	border-color: #41637e;
 	border-width: 4px;
+	background-color: lightgray;
+	opacity: 0.9;
 }
 
 .favorable {
@@ -35,11 +42,18 @@
 .my-top {
 	text-align: center;
 	background-color: salmon;
-	opacity: 0.8;
+	opacity: 1;
 	color: black;
 }
 
 /*changing the city name to uppercase on display */
 .capitalize {
 	text-transform: capitalize;
+}
+
+.info-container {
+	background-color: salmon;
+	border-style: groove;
+	margin: 1em 0;
+	padding: 0.5em;
 }

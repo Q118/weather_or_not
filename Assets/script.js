@@ -5,6 +5,7 @@ $(function () {
 	//then we read value of input element
 
 	$("#search-button").on("click", function (event) {
+		
 		event.preventDefault();
 		var apiKey = "cb2ced122314e011f2e654fe37600669";
 		var city = $("#city-input").val();
@@ -18,6 +19,7 @@ $(function () {
 
 		var a = $("<button>");
 		a.text(city);
+		a.addClass("m-3");
 		$("#button-container").append(a);
 
 		$.ajax({
@@ -68,7 +70,7 @@ $(function () {
 				//append forecast-day div to forecast
 				$("#forecast").append(forecastContainer);
 			}
-			//place title at the top
+			//placing title at the top
 			var cityTitle = $("<h2>").text(city + "'s 5 Day forecast:");
 			$("#forecast").prepend(cityTitle);
 
@@ -88,20 +90,26 @@ $(function () {
 				"Wind: " + forecastDays[0].wind.speed + "mph"
 			);
 
-				var uvIndex =  $("<li>").text(
-					"UV Index: " + forecastDays[0].wind.deg + "%"
-				);
+			var uvIndex = $("<li>").text("UV Index: " + forecastDays[0].wind.deg);
 
-			//capitalize the title and center the info
+			//capitalize the title and center the info, append to body
 			currentName.addClass("capitalize text-center");
-			currentTemp.addClass("text-center");
-			currentHumidity.addClass("text-center");
-			currentWind.addClass("text-center");
-			uvIndex.addClass("text-center");
-			$("#info-container").append(currentName, currentTemp, currentHumidity, currentWind, uvIndex);
+			currentTemp.addClass("text-center info-container");
+			currentHumidity.addClass("text-center info-container");
+			currentWind.addClass("text-center info-container");
+			uvIndex.addClass("text-center info-container");
+			$("#info-container").append(
+				currentName,
+				currentTemp,
+				currentHumidity,
+				currentWind,
+				uvIndex
+			);
 			console.log(forecastDays[0]);
 
 			
+
+
 		});
 	});
 
@@ -110,5 +118,3 @@ $(function () {
 	//	var city = $("#city-input").val();
 	//}
 });
-
-
