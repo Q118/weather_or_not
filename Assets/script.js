@@ -84,14 +84,24 @@ $(function () {
 			var currentHumidity = $("<li>").text(
 				"Humidity: " + forecastDays[0].main.humidity + "%"
 			);
-				//capitalize the title
-			currentName.addClass("capitalize");
-			$("#info-container").append(currentName, currentTemp, currentHumidity);
-			console.log(this);
+			var currentWind = $("<li>").text(
+				"Wind: " + forecastDays[0].wind.speed + "mph"
+			);
 
-			//var currentHumidity =
-			//var currentWind =
-			//var uvIndex =
+				var uvIndex =  $("<li>").text(
+					"UV Index: " + forecastDays[0].wind.deg + "%"
+				);
+
+			//capitalize the title and center the info
+			currentName.addClass("capitalize text-center");
+			currentTemp.addClass("text-center");
+			currentHumidity.addClass("text-center");
+			currentWind.addClass("text-center");
+			uvIndex.addClass("text-center");
+			$("#info-container").append(currentName, currentTemp, currentHumidity, currentWind, uvIndex);
+			console.log(forecastDays[0]);
+
+			
 		});
 	});
 
@@ -100,6 +110,5 @@ $(function () {
 	//	var city = $("#city-input").val();
 	//}
 });
-
 
 
