@@ -17,13 +17,18 @@ $(function () {
 		if (storedCities !== null) {
 			cities = storedCities;
 			//get us our last stored city
-			city = storedCities[storedCities.length-1];
+			city = storedCities[storedCities.length - 1];
 			console.log(cities);
 			//trying to add this here to get it to work...
 			renderInfo();
+			var a = $("<button>");
+
+			a.text(city);
+			a.addClass("m-3 city-button");
+
+			$("#button-container").append(a);
 		}
 		//renders cities to the DOM
-		
 	}
 
 	//event handling on city buttons
