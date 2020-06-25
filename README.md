@@ -2,7 +2,7 @@
 
 # Open Weather Map API
 
-![](https://github.com/Q118/screenshot-weather/blob/master/Assets/Screenshot.png)
+![](https://github.com/Q118/weather_or_not/blob/master/Assets/screenshot-weather.png)
 
 ## Description
 
