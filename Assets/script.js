@@ -5,11 +5,11 @@ $(function () {
 	//then we read value of input element
 
 	$(document).ready(function () {
-		
 		init();
 	});
 
 	var cities = [];
+	//console.log(cities);
 
 	function init() {
 		//get stored todos from localStorage
@@ -17,17 +17,15 @@ $(function () {
 		var storedCities = JSON.parse(localStorage.getItem("forecastDays"));
 		if (storedCities !== null) {
 			cities = storedCities;
-		};
+		}
 		//renders cities to the DOM
 		renderInfo();
-	};
-
+	}
 
 	//event handling on city buttons
 	$("#button-container").on("click", ".m-3", function (event) {
 		event.preventDefault();
-		console.log(this.textContent);
-		var apiKey = "cb2ced122314e011f2e654fe37600669";
+		var apiKey = "833100609a87c9e8f833ff46575821a1";
 		var city = this.textContent;
 
 		var queryURL =
@@ -37,7 +35,6 @@ $(function () {
 			"&appid=" +
 			apiKey;
 
-	
 		$.ajax({
 			url: queryURL,
 			method: "GET",
@@ -134,13 +131,14 @@ $(function () {
 		var city = $("#city-input").val();
 		a.text(city);
 		a.addClass("m-3");
+		
 		$("#button-container").append(a);
 
 		renderInfo();
 	});
 
 	function renderInfo() {
-		var apiKey = "cb2ced122314e011f2e654fe37600669";
+		var apiKey = "833100609a87c9e8f833ff46575821a1";
 		var city = $("#city-input").val();
 
 		var queryURL =
@@ -150,7 +148,6 @@ $(function () {
 			"&appid=" +
 			apiKey;
 
-	
 		$.ajax({
 			url: queryURL,
 			method: "GET",
@@ -221,6 +218,8 @@ $(function () {
 			);
 
 			var uvIndex = $("<li>").text("UV Index: " + forecastDays[0].wind.deg);
+
+			
 
 			//capitalize the title and center the info, append to body
 			currentName.addClass("capitalize text-center");
