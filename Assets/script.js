@@ -4,29 +4,33 @@ $(function () {
 	//listen for clicks on search button
 	//then we read value of input element
 
-	$(document).ready(function () {
-		init();
-	});
+	init();
 
 	var cities = [];
 	//console.log(cities);
+	var city;
 
 	function init() {
 		//get stored todos from localStorage
 		//parsing the JSON string to an object
-		var storedCities = JSON.parse(localStorage.getItem("forecastDays"));
+		var storedCities = JSON.parse(localStorage.getItem("cities"));
 		if (storedCities !== null) {
 			cities = storedCities;
+			//get us our last stored city
+			city = storedCities[storedCities.length-1];
+			console.log(cities);
+			//trying to add this here to get it to work...
+			renderInfo();
 		}
 		//renders cities to the DOM
-		renderInfo();
+		
 	}
 
 	//event handling on city buttons
-	$("#button-container").on("click", ".m-3", function (event) {
+	$("#button-container").on("click", ".city-button", function (event) {
 		event.preventDefault();
 		var apiKey = "833100609a87c9e8f833ff46575821a1";
-		var city = this.textContent;
+		city = this.textContent;
 
 		var queryURL =
 			"https://api.openweathermap.org/data/2.5/forecast?q=" +
@@ -54,7 +58,8 @@ $(function () {
 			forecastDays.push(response.list[32]);
 
 			//save array to local storage
-			localStorage.setItem("forecastDays", JSON.stringify(forecastDays));
+			//use cities below or forecastDays?
+			localStorage.setItem("forecastDays", JSON.stringify(cities));
 			//put title in capitals
 			forecastEl.addClass("capitalize");
 
@@ -128,18 +133,19 @@ $(function () {
 	$("#search-button").on("click", function (event) {
 		event.preventDefault();
 		var a = $("<button>");
-		var city = $("#city-input").val();
+		city = $("#city-input").val();
 		a.text(city);
-		a.addClass("m-3");
-		
-		$("#button-container").append(a);
+		a.addClass("m-3 city-button");
 
+		$("#button-container").append(a);
+		cities.push(city);
+		//save array to local storage
+		localStorage.setItem("cities", JSON.stringify(cities));
 		renderInfo();
 	});
 
 	function renderInfo() {
 		var apiKey = "833100609a87c9e8f833ff46575821a1";
-		var city = $("#city-input").val();
 
 		var queryURL =
 			"https://api.openweathermap.org/data/2.5/forecast?q=" +
@@ -166,8 +172,6 @@ $(function () {
 			forecastDays.push(response.list[24]);
 			forecastDays.push(response.list[32]);
 
-			//save array to local storage
-			localStorage.setItem("forecastDays", JSON.stringify(forecastDays));
 			//put title in capitals
 			forecastEl.addClass("capitalize");
 
@@ -218,8 +222,6 @@ $(function () {
 			);
 
 			var uvIndex = $("<li>").text("UV Index: " + forecastDays[0].wind.deg);
-
-			
 
 			//capitalize the title and center the info, append to body
 			currentName.addClass("capitalize text-center");
