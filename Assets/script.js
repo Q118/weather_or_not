@@ -19,7 +19,7 @@ $(function () {
 			//get us our last stored city
 			city = storedCities[storedCities.length - 1];
 			console.log(cities);
-			//trying to add this here to get it to work...
+			//renders cities to the DOM
 			renderInfo();
 			var a = $("<button>");
 
@@ -28,7 +28,7 @@ $(function () {
 
 			$("#button-container").append(a);
 		}
-		//renders cities to the DOM
+		
 	}
 
 	//event handling on city buttons
