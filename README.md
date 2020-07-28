@@ -1,48 +1,54 @@
 <!-- @format -->
 
-# Open Weather Map API
+# Weather or Not
+
+An Open Weather Map API
 
 ![](https://github.com/Q118/weather_or_not/blob/master/Assets/screenshot-weather.png)
 
-## Description
+Developers are often tasked with retrieving data from another application's API and using it in the context of their own. Third-party APIs allow developers to access their data and functionality by making requests with specific parameters to a URL. My objective in this app is to build a weather dashboard that will run in the browser and feature dynamically updated HTML and CSS.
 
-Developers are often tasked with retrieving data from another application's API and using it in the context of their own. Third-party APIs allow developers to access their data and functionality by making requests with specific parameters to a URL. Your challenge is to build a weather dashboard that will run in the browser and feature dynamically updated HTML and CSS.
+
+## Table of Contents
+    
+* [Installation](#Installation)
+* [Usage](#Usage)
+* [License](#🛡Badge📛)
+* [Contact](#Contact)
+
+
+
+## Installation
 
 Use the [OpenWeather API]() to retrieve weather data for cities.
+Open the app in your browser, search for your city of choice. Repeat as often as you like. The app stores your cities so you can return to them later.
 
-## Objectives
 
-AS A traveler
-I WANT to see the weather outlook for multiple cities
-SO THAT I can plan a trip accordingly
+## Usage
 
-GIVEN a weather dashboard with form inputs
+* [View the live app here!](https://q118.github.io/weather_or_not)
 
-WHEN I search for a city
-THEN I am presented with current and future conditions for that city and that city is added to the search history
 
-WHEN I view current weather conditions for that city
-THEN I am presented with the city name, the date, an icon representation of weather conditions, the temperature, the humidity, the wind speed, and the UV index
+## 🛡Badge📛
 
-WHEN I view the UV index
-THEN I am presented with a color that indicates whether the conditions are favorable, moderate, or severe
+![](https://img.shields.io/badge/Shelby-Anne-purple)
 
-WHEN I view future weather conditions for that city
-THEN I am presented with a 5-day forecast that displays the date, an icon representation of weather conditions, the temperature, and the humidity
 
-WHEN I click on a city in the search history
-THEN I am again presented with current and future conditions for that city
+## Contributing
+        
+Please feel free to fork, add comments, and share.
+    
+        
+## Tests
+    
+Test to be done through VScode and Chrome.
+    
+    
+## Contact
+    
+Reach out to me with any questions!
+    
+* [Visit my GitHub Page](https://github.com/q118).
+* [Send me an Email](mailto:shelbyfish91@gmail.com).
+* [View more of my apps in my portfolio](https://q118.github.io/shelby_rothman/portfolio.html).
 
-WHEN I open the weather dashboard
-THEN I am presented with the last searched city forecast
-
-## USAGE/Installation
-
-URL for my deployed page: https://q118.github.io/weather_or_not/
-
-## Credits
-
-https://api.jquery.com/each/#each-function
-https://momentjs.com/guides/
-https://openweathermap.org/api
-https://blog.logrocket.com/the-complete-guide-to-using-localstorage-in-javascript-apps-ba44edb53a36/
